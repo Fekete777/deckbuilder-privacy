@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deckbuilder Privacy Policy</title>
+<meta name="description" content="How the Deckbuilder Android app handles your data.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fdfcfa;
+    --text: #1d1d1f;
+    --muted: #5b5b60;
+    --rule: #e2e0dc;
+    --link: #0b57d0;
+    --panel: #f3f1ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161618;
+      --text: #ececee;
+      --muted: #a3a3a8;
+      --rule: #2e2e32;
+      --link: #8ab4f8;
+      --panel: #202024;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 4rem; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .25rem; }
+  h2 { font-size: 1.2rem; margin: 2.5rem 0 .5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  p, ul { margin: 0 0 1rem; }
+  li { margin-bottom: .35rem; }
+  a { color: var(--link); }
+  .meta { color: var(--muted); margin-bottom: 2rem; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 1.25rem 1.25rem .5rem; }
+  .summary h2 { border: 0; margin: 0 0 .5rem; padding: 0; }
+  footer { color: var(--muted); font-size: .9rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Deckbuilder Privacy Policy</h1>
+  <p class="meta">Effective 28 October 2026</p>
+
+  <p>Deckbuilder is an Android app for cataloguing trading cards. This policy explains what data the
+    app handles, where it goes, and what you can do about it.</p>
+
+  <p>Deckbuilder is developed by Patrick Fekete, who is responsible for the processing described
+    here. You can reach me at <a href="mailto:supagamesstudios@gmail.com">supagamesstudios@gmail.com</a>.</p>
+
+  <section class="summary">
+    <h2>In short</h2>
+    <ul>
+      <li>There are no accounts, no ads and no analytics or tracking.</li>
+      <li>Your collection, your scans and your card images stay on your device.</li>
+      <li>The app sends card lookups to Scryfall, a card database, and crash reports to Google.</li>
+      <li>Card scanning and text recognition run on your device. Your scans are not uploaded.</li>
+    </ul>
+  </section>
+
+  <h2>Data stored on your device</h2>
+  <p>The app stores your collection (cards, quantities, decks, owned and wanted status), the images
+    of cards you scan, and card images downloaded from Scryfall. This data stays on your device. I
+    never receive it.</p>
+  <p>If Android backup is turned on, Android may include this data in your Google account backup.
+    That backup is handled by Google under its terms, and you can turn it off in your device
+    settings.</p>
+
+  <h2>Card lookups through Scryfall</h2>
+  <p>The app identifies cards through <a href="https://scryfall.com">Scryfall</a>, an independent
+    card database based in the United States. Your device sends these requests directly to Scryfall
+    over an encrypted connection. They are never sent to me. Scryfall receives:</p>
+  <ul>
+    <li>what you type when you search or add a card by name, along with the selected language;</li>
+    <li>the set code, collector number and card name read from a scan, but never the scan
+      itself;</li>
+    <li>requests for card images;</li>
+    <li>a one-time request for the cards you already have, after an app update that stores more
+      information about each card;</li>
+    <li>as with any internet request, your IP address and the app's name and version.</li>
+  </ul>
+  <p>These requests are needed to provide the features you use (Art. 6(1)(b) GDPR). Scryfall's
+    handling of them is covered by the <a href="https://scryfall.com/docs/privacy">Scryfall privacy
+    policy</a>.</p>
+
+  <h2>Card scanning and text recognition</h2>
+  <p>Scanning uses Google's ML Kit document scanner and text recognition, which are provided through
+    Google Play services. Your card images are processed on your device. The first time you scan,
+    Google Play services may download these components.</p>
+  <p>ML Kit sends Google diagnostic and usage information, such as the device model, Android
+    version, image size, processing time and error codes. Google uses it to maintain and improve
+    ML Kit. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit's data
+    disclosure</a>.</p>
+
+  <h2>Crash reports</h2>
+  <p>When the app crashes, it sends a crash report to Google through
+    <a href="https://firebase.google.com/products/crashlytics">Firebase Crashlytics</a>. A report
+    contains:</p>
+  <ul>
+    <li>technical details of the error, such as the stack trace;</li>
+    <li>device details, such as the model, Android version and available memory, and whether the
+      app was in the foreground;</li>
+    <li>the app version;</li>
+    <li>random identifiers for the app installation and the session, which are used to group
+      reports and count how many installations a crash affects.</li>
+  </ul>
+  <p>Reports contain no name, email address, location or collection data, and they are not used
+    for advertising. I use them only to find and fix errors, which is my legitimate interest in
+    keeping the app working (Art. 6(1)(f) GDPR). Google keeps crash reports for 90 days. See
+    <a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a>.</p>
+
+  <h2>Exporting and importing</h2>
+  <p>When you export a deck list or your collection, the file goes only to the location you choose
+    in Android's file picker. When you import, the app reads only the file you pick.</p>
+
+  <h2>Permissions</h2>
+  <p>The app requests only internet and network status access. It has no access to your camera,
+    photos, location or contacts. The scanner runs in Google Play services and hands the app only
+    the card image you confirm.</p>
+
+  <h2>Transfers outside the EU</h2>
+  <p>Google and Scryfall may process data in the United States. Google does this under the
+    safeguards described in its <a href="https://policies.google.com/privacy">privacy
+    policy</a>.</p>
+
+  <h2>How long data is kept</h2>
+  <ul>
+    <li>Data on your device is kept until you delete it in the app, clear the app's data or
+      uninstall the app.</li>
+    <li>Crash reports are deleted by Google after 90 days.</li>
+    <li>Scryfall keeps its request logs according to its own policy.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>Under the GDPR you have the right to access, correct and delete your personal data, to
+    restrict or object to its processing, and to data portability. You also have the right to
+    complain to a data protection authority, such as the one in your country. To exercise any of
+    these rights, email me. Crash reports carry no name or contact details, so I can only find yours
+    with your help, for example the date and time of the crash.</p>
+
+  <h2>Children</h2>
+  <p>The app is not directed at children under 13.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the new version is published on this page with a new effective
+    date.</p>
+
+  <footer>
+    <p>Deckbuilder is unofficial Fan Content permitted under the Fan Content Policy. Not
+      approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the
+      Coast. ©Wizards of the Coast LLC.</p>
+    <p>Card data and images provided by Scryfall. Not affiliated with or endorsed by Scryfall.</p>
+  </footer>
+</main>
+</body>
+</html>
