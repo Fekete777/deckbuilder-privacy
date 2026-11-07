@@ -1,0 +1,62 @@
+name: Publish policy
+
+# Publishes a policy commit by bringing main to it, as GitHub Pages serves main. deckbuilder's
+# release.yml starts it after each release with the commit its privacy-policy submodule points at,
+# so a policy goes live with the release it describes. To run it by hand:
+# `gh workflow run publish.yml -R Fekete777/deckbuilder-privacy -f commit=<sha>`.
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Full SHA of the policy commit to publish
+        required: true
+        type: string
+
+# Runs take turns, so two releases cannot race on main.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Bring main to the commit
+        env:
+          COMMIT: ${{ inputs.commit }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [[ ! $COMMIT =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::'$COMMIT' is not a full commit SHA."
+            exit 1
+          fi
+          if ! git fetch --quiet origin "$COMMIT"; then
+            echo "::error::$COMMIT does not exist in this repository."
+            exit 1
+          fi
+
+          if git merge-base --is-ancestor "$COMMIT" HEAD; then
+            echo "main already has $COMMIT, so it is already published."
+            exit 0
+          fi
+
+          if git merge-base --is-ancestor HEAD "$COMMIT"; then
+            git merge --ff-only "$COMMIT"
+          else
+            git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              merge --no-ff -m "Publish $COMMIT" "$COMMIT"
+          fi
+          git push origin HEAD:main
+
+          # A push made with GITHUB_TOKEN does not reliably start other workflows, and the Pages
+          # build is one. Requesting it as well does no harm when the push already started one.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
