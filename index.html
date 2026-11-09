@@ -47,7 +47,7 @@
 <body>
 <main>
   <h1>Deckbuilder Privacy Policy</h1>
-  <p class="meta">Effective 28 October 2026</p>
+  <p class="meta">Effective 9 November 2026</p>
 
   <p>Deckbuilder is an Android app for cataloguing trading cards. This policy explains what data the
     app handles, where it goes, and what you can do about it.</p>
@@ -92,8 +92,10 @@
 
   <h2>Card scanning and text recognition</h2>
   <p>Scanning uses Google's ML Kit document scanner and text recognition, which are provided through
-    Google Play services. Your card images are processed on your device. The first time you scan,
-    Google Play services may download these components.</p>
+    Google Play services. You can also scan with the app's own live camera, which reads the card you
+    hold inside the frame on screen with the same text recognition. Your card images and camera
+    pictures are processed on your device. The first time you scan, Google Play services may
+    download these components.</p>
   <p>ML Kit sends Google diagnostic and usage information, such as the device model, Android
     version, image size, processing time and error codes. Google uses it to maintain and improve
     ML Kit. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit's data
@@ -121,9 +123,12 @@
     in Android's file picker. When you import, the app reads only the file you pick.</p>
 
   <h2>Permissions</h2>
-  <p>The app requests only internet and network status access. It has no access to your camera,
-    photos, location or contacts. The scanner runs in Google Play services and hands the app only
-    the card image you confirm.</p>
+  <p>The app requests internet and network status access, and access to your camera. It asks for the
+    camera only when you open the live camera, and uses it only while that screen is open. Camera
+    pictures are read on your device and then discarded, except the picture a card is recognised
+    from, which is kept on your device as that card's scan. Camera pictures are never uploaded.</p>
+  <p>The app has no access to your photos, location or contacts. The document scanner runs in Google
+    Play services and hands the app only the card image you confirm.</p>
 
   <h2>Transfers outside the EU</h2>
   <p>Google and Scryfall may process data in the United States. Google does this under the
